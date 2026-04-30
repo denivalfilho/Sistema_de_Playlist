@@ -9,3 +9,8 @@ class Musica:
     def __str__(self):
         return f"[{self.id}] {self.titulo} - {self.artista} ({self.genero}) BPM: {self.bpm}"
 
+
+
+
+minha_musica = Musica(1, "Imagine", "John Lennon", "Rock", 75)
+print(minha_musica)
