@@ -15,5 +15,13 @@ class NodoLista:
         self.proximo = None
 
 
-minha_musica = Musica(1, "Imagine", "John Lennon", "Rock", 75)
-print(minha_musica)
+m1 = Musica(1, "Música A", "Artista A", "Pop", 100)
+m2 = Musica(2, "Música B", "Artista B", "Rock", 140)
+
+no1 = NodoLista(m1)
+no2 = NodoLista(m2)
+
+no1.proximo = no2
+
+print(f"O primeiro nó tem a música: {no1.musica.titulo}")
+print(f"O próximo nó depois do primeiro tem a música: {no1.proximo.musica.titulo}")
