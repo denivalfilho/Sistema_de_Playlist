@@ -5,3 +5,7 @@ class Musica:
         self.artista = artista
         self.genero = genero
         self.bpm = bpm
+
+    def __str__(self):
+        return f"[{self.id}] {self.titulo} - {self.artista} ({self.genero}) BPM: {self.bpm}"
+
