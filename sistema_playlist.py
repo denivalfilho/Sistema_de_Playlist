@@ -63,3 +63,23 @@ class Biblioteca:
             atual = atual.proximo
             
         return None
+
+    def remover_musica(self, id_alvo):
+        atual = self.inicio
+        anterior = None
+
+        while atual is not None:
+            if atual.musica.id == id_alvo:
+                if anterior is None:
+                    self.inicio = atual.proximo
+                else:
+                    anterior.proximo = atual.proximo
+                
+                print(f"Música '{atual.musica.titulo}' removida com sucesso!")
+                return True
+            
+            anterior = atual
+            atual = atual.proximo
+
+        print("Erro: ID não encontrado.")
+        return False
