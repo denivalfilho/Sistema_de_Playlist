@@ -30,15 +30,20 @@ class Biblioteca:
             atual.proximo = novo_nodo
         print(f"Música '{musica.titulo}' adicionada com sucesso!")
 
+    def listar_musicas(self):
+            if self.inicio is None:
+                print("A biblioteca está vazia.")
+                return
 
-minha_biblioteca = Biblioteca()
+            print("Biblioteca Completa")
+            atual = self.inicio
+            while atual is not None:
+                print(atual.musica)
+                atual = atual.proximo
 
-m1 = Musica(1, "Imagine", "John Lennon", "Rock", 75)
-m2 = Musica(2, "Stayin' Alive", "Bee Gees", "Disco", 103)
+biblioteca = Biblioteca()
+biblioteca.adicionar_musica(Musica(1, "Imagine", "John Lennon", "Rock", 75))
+biblioteca.adicionar_musica(Musica(2, "Stayin' Alive", "Bee Gees", "Disco", 103))
+biblioteca.adicionar_musica(Musica(3, "Thunderstruck", "AC/DC", "Rock", 133))
 
-minha_biblioteca.adicionar_musica(m1)
-minha_biblioteca.adicionar_musica(m2)
-
-
-print(f"Início da biblioteca: {minha_biblioteca.inicio.musica.titulo}")
-print(f"Próxima da lista: {minha_biblioteca.inicio.proximo.musica.titulo}")
+biblioteca.listar_musicas()
