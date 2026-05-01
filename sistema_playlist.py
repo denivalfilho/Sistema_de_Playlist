@@ -14,14 +14,18 @@ class NodoLista:
         self.musica = musica
         self.proximo = None
 
+class Biblioteca:
+    def __init__(self):
+        self.inicio = None
 
-m1 = Musica(1, "Música A", "Artista A", "Pop", 100)
-m2 = Musica(2, "Música B", "Artista B", "Rock", 140)
-
-no1 = NodoLista(m1)
-no2 = NodoLista(m2)
-
-no1.proximo = no2
-
-print(f"O primeiro nó tem a música: {no1.musica.titulo}")
-print(f"O próximo nó depois do primeiro tem a música: {no1.proximo.musica.titulo}")
+    def adicionar_musica(self, musica):
+        novo_nodo = NodoLista(musica)
+        
+        if self.inicio is None:
+            self.inicio = novo_nodo
+        else:
+            atual = self.inicio
+            while atual.proximo is not None:
+                atual = atual.proximo
+            atual.proximo = novo_nodo
+        print(f"Música '{musica.titulo}' adicionada com sucesso!")
