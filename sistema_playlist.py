@@ -29,3 +29,16 @@ class Biblioteca:
                 atual = atual.proximo
             atual.proximo = novo_nodo
         print(f"Música '{musica.titulo}' adicionada com sucesso!")
+
+
+minha_biblioteca = Biblioteca()
+
+m1 = Musica(1, "Imagine", "John Lennon", "Rock", 75)
+m2 = Musica(2, "Stayin' Alive", "Bee Gees", "Disco", 103)
+
+minha_biblioteca.adicionar_musica(m1)
+minha_biblioteca.adicionar_musica(m2)
+
+
+print(f"Início da biblioteca: {minha_biblioteca.inicio.musica.titulo}")
+print(f"Próxima da lista: {minha_biblioteca.inicio.proximo.musica.titulo}")
