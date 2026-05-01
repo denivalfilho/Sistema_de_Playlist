@@ -28,6 +28,7 @@ class Biblioteca:
             while atual.proximo is not None:
                 atual = atual.proximo
             atual.proximo = novo_nodo
+        
         print(f"Música '{musica.titulo}' adicionada com sucesso!")
 
     def listar_musicas(self):
@@ -41,9 +42,14 @@ class Biblioteca:
                 print(atual.musica)
                 atual = atual.proximo
 
-biblioteca = Biblioteca()
-biblioteca.adicionar_musica(Musica(1, "Imagine", "John Lennon", "Rock", 75))
-biblioteca.adicionar_musica(Musica(2, "Stayin' Alive", "Bee Gees", "Disco", 103))
-biblioteca.adicionar_musica(Musica(3, "Thunderstruck", "AC/DC", "Rock", 133))
-
-biblioteca.listar_musicas()
+    def buscar_por_id(self, id_procurado):
+        atual = self.inicio
+        
+        while atual is not None:
+            if atual.musica.id == id_procurado:
+                print(f"Música encontrada: {atual.musica}")
+                return atual.musica
+            atual = atual.proximo
+        
+        print(f"Música com ID {id_procurado} não encontrada.")
+        return None
