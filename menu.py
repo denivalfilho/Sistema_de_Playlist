@@ -7,6 +7,7 @@ def menu():
     while True:
         print("MENU PLAYLIST")
         print("1. Adicionar música")
+        print("3. Buscar música")
         print("4. Listar biblioteca")
         print("0. Sair")
         
@@ -21,6 +22,14 @@ def menu():
             nova_m = Musica(proximo_id, t, a, g, b)
             minha_biblioteca.adicionar_musica(nova_m)
             proximo_id += 1
+
+        elif opcao == "3":
+                    termo = input("Digite o ID ou o Título da música: ")
+                    encontrada = minha_biblioteca.buscar_musica(termo)
+                    if encontrada:
+                        print(f"Sucesso! Música encontrada:{encontrada}")
+                    else:
+                        print("Erro: Música não encontrada.")
 
         elif opcao == "4":
             minha_biblioteca.listar_musicas()

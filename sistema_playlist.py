@@ -53,3 +53,13 @@ class Biblioteca:
         
         print(f"Música com ID {id_procurado} não encontrada.")
         return None
+    
+    def buscar_musica(self, termo):
+        atual = self.inicio
+        
+        while atual is not None:
+            if str(atual.musica.id) == str(termo) or atual.musica.titulo.lower() == str(termo).lower():
+                return atual.musica
+            atual = atual.proximo
+            
+        return None
