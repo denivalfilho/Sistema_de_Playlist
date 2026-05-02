@@ -108,3 +108,15 @@ class Fila:
             self.fim = novo_no
         self._tamanho += 1
 
+    def dequeue(self):
+        if self.esta_vazia():
+            return None
+        
+        musica = self.inicio.musica
+        self.inicio = self.inicio.proximo
+        
+        if self.inicio is None:
+            self.fim = None
+            
+        self._tamanho -= 1
+        return musica
