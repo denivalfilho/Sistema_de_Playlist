@@ -120,3 +120,13 @@ class Fila:
             
         self._tamanho -= 1
         return musica
+
+    def exibir_fila(self):
+        if self.esta_vazia():
+            print("Fila vazia.")
+            return
+            
+        atual = self.inicio
+        while atual:
+            print(atual.musica)
+            atual = atual.proximo
