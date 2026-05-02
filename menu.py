@@ -1,4 +1,4 @@
-from sistema_playlist import Biblioteca, Musica
+from sistema_playlist import Biblioteca, Musica, Fila
 
 def menu():
     minha_biblioteca = Biblioteca()
@@ -10,6 +10,7 @@ def menu():
         print("2. Remover música")
         print("3. Buscar música")
         print("4. Listar biblioteca")
+        print("5. Montar filas de humor")
         print("0. Sair")
         
         opcao = input("Escolha uma opção: ")
@@ -38,6 +39,30 @@ def menu():
 
         elif opcao == "4":
             minha_biblioteca.listar_musicas()
+
+        elif opcao == "5":
+            fila_relaxar = Fila()
+            fila_focar = Fila()
+            fila_animar = Fila()
+            fila_treinar = Fila()
+
+            atual = minha_biblioteca.inicio
+            if atual is None:
+                print("Biblioteca vazia. Adicione músicas primeiro.")
+            else:
+                while atual is not None:
+                    m = atual.musica
+                    if m.bpm <= 80:
+                        fila_relaxar.enqueue(m)
+                    elif 81 <= m.bpm <= 120:
+                        fila_focar.enqueue(m)
+                    elif 121 <= m.bpm <= 160:
+                        fila_animar.enqueue(m)
+                    else: # Acima de 160
+                        fila_treinar.enqueue(m)
+                    
+                    atual = atual.proximo
+                print("Filas de humor montadas com sucesso!")
 
         elif opcao == "0":
             print("Encerrando o programa...")
