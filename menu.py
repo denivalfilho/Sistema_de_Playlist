@@ -4,6 +4,12 @@ def menu():
     minha_biblioteca = Biblioteca()
     proximo_id = 1
 
+    fila_relaxar = Fila()
+    fila_focar = Fila()
+    fila_animar = Fila()
+    fila_treinar = Fila()
+    historico = Fila()
+
     while True:
         print("MENU PLAYLIST")
         print("1. Adicionar música")
@@ -48,7 +54,7 @@ def menu():
 
             atual = minha_biblioteca.inicio
             if atual is None:
-                print("Biblioteca vazia. Adicione músicas primeiro.")
+                print("Biblioteca vazia.")
             else:
                 while atual is not None:
                     m = atual.musica
@@ -58,11 +64,20 @@ def menu():
                         fila_focar.enqueue(m)
                     elif 121 <= m.bpm <= 160:
                         fila_animar.enqueue(m)
-                    else: # Acima de 160
+                    else:
                         fila_treinar.enqueue(m)
                     
                     atual = atual.proximo
-                print("Filas de humor montadas com sucesso!")
+                
+                print("Filas montadas com sucesso!")
+                print("--- Relaxar ---")
+                fila_relaxar.exibir_fila()
+                print("--- Focar ---")
+                fila_focar.exibir_fila()
+                print("--- Animar ---")
+                fila_animar.exibir_fila()
+                print("--- Treinar ---")
+                fila_treinar.exibir_fila()
 
         elif opcao == "0":
             print("Encerrando o programa...")
