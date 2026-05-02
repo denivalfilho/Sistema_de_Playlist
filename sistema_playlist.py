@@ -83,3 +83,28 @@ class Biblioteca:
 
         print("Erro: ID não encontrado.")
         return False
+
+class NodoFila:
+    def __init__(self, musica):
+        self.musica = musica
+        self.proximo = None
+
+class Fila:
+    def __init__(self):
+        self.inicio = None
+        self.fim = None
+        self._tamanho = 0
+
+    def esta_vazia(self):
+        return self.inicio is None
+
+    def enqueue(self, musica):
+        novo_no = NodoFila(musica)
+        if self.esta_vazia():
+            self.inicio = novo_no
+            self.fim = novo_no
+        else:
+            self.fim.proximo = novo_no
+            self.fim = novo_no
+        self._tamanho += 1
+
