@@ -79,6 +79,29 @@ def menu():
                 print("--- Treinar ---")
                 fila_treinar.exibir_fila()
 
+        elif opcao == "6":
+            print("Qual humor você quer ouvir?")
+            print("1. Relaxar | 2. Focar | 3. Animar | 4. Treinar")
+            humor = input("Escolha: ")
+            
+            fila_escolhida = None
+            if humor == "1":
+                fila_escolhida = fila_relaxar
+            elif humor == "2":
+                fila_escolhida = fila_focar
+            elif humor == "3":
+                fila_escolhida = fila_animar
+            elif humor == "4":
+                fila_escolhida = fila_treinar
+
+            if fila_escolhida and not fila_escolhida.esta_vazia():
+                musica_tocando = fila_escolhida.dequeue() # Tira da fila de humor
+                print(f"Reproduzindo agora: {musica_tocando.titulo} - {musica_tocando.artista}")
+                
+                historico.enqueue(musica_tocando)
+            else:
+                print("Não há músicas nesta fila. Lembre-se de montar as filas (Opção 5) primeiro!")
+
         elif opcao == "0":
             print("Encerrando o programa...")
             break
