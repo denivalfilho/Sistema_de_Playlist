@@ -17,6 +17,8 @@ def menu():
         print("3. Buscar música")
         print("4. Listar biblioteca")
         print("5. Montar filas de humor")
+        print("6. Reproduzir música (Ouvir)")
+        print("7. Ver Histórico")
         print("0. Sair")
         
         opcao = input("Escolha uma opção: ")
@@ -80,8 +82,8 @@ def menu():
                 fila_treinar.exibir_fila()
 
         elif opcao == "6":
-            print("Qual humor você quer ouvir?")
-            print("1. Relaxar | 2. Focar | 3. Animar | 4. Treinar")
+            print("Reproduzir")
+            print("Escolha o humor: 1.Relax | 2.Foco | 3.Animar | 4.Treinar")
             humor = input("Escolha: ")
             
             fila_escolhida = None
@@ -95,13 +97,20 @@ def menu():
                 fila_escolhida = fila_treinar
 
             if fila_escolhida and not fila_escolhida.esta_vazia():
-                musica_tocando = fila_escolhida.dequeue() # Tira da fila de humor
+                musica_tocando = fila_escolhida.dequeue()
                 print(f"Reproduzindo agora: {musica_tocando.titulo} - {musica_tocando.artista}")
                 
                 historico.enqueue(musica_tocando)
             else:
                 print("Não há músicas nesta fila. Lembre-se de montar as filas (Opção 5) primeiro!")
 
+        elif opcao == "7":
+            print("HISTÓRICO DE REPRODUÇÃO")
+            if historico.esta_vazia():
+                print("Nenhuma música foi tocada ainda.")
+            else:
+                historico.exibir_fila()
+        
         elif opcao == "0":
             print("Encerrando o programa...")
             break
