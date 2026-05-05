@@ -11,7 +11,7 @@ def menu():
     historico = Fila()
 
     while True:
-        print("MENU PLAYLIST")
+        print("\nMENU PLAYLIST")
         print("1. Adicionar música")
         print("2. Remover música")
         print("3. Buscar música")
