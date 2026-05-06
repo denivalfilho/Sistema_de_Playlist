@@ -44,8 +44,12 @@ def menu():
             proximo_id += 1
 
         elif opcao == "2":
-            id_para_remover = int(input("Digite o ID da música que deseja remover: "))
-            minha_biblioteca.remover_musica(id_para_remover)
+            id_input = input("Digite o ID da música que deseja remover: ")
+            if id_input.isdigit():
+                id_para_remover = int(id_input)
+                minha_biblioteca.remover_musica(id_para_remover)
+            else:
+                print("Erro: Digite um ID numérico válido.")
         
         elif opcao == "3":
                     termo = input("Digite o ID ou o Título da música: ")
