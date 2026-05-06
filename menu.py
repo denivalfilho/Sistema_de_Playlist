@@ -106,13 +106,14 @@ def menu():
             elif humor == "4":
                 fila_escolhida = fila_treinar
 
-            if fila_escolhida and not fila_escolhida.esta_vazia():
+            if fila_escolhida is None:
+                print("Opção de humor inválida.")
+            elif fila_escolhida.esta_vazia():
+                print("Erro: Esta fila está vazia. Lembre-se de montar as filas (Opção 5) primeiro!")
+            else:
                 musica_tocando = fila_escolhida.dequeue()
                 print(f"Reproduzindo agora: {musica_tocando.titulo} - {musica_tocando.artista}")
-                
                 historico.enqueue(musica_tocando)
-            else:
-                print("Não há músicas nesta fila. Lembre-se de montar as filas (Opção 5) primeiro!")
 
         elif opcao == "7":
             print("Escolha a fila: 1.Relax | 2.Foco | 3.Animar | 4.Treinar")
