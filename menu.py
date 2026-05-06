@@ -27,7 +27,15 @@ def menu():
             t = input("Título: ")
             a = input("Artista: ")
             g = input("Gênero: ")
-            b = int(input("BPM: "))
+
+            entrada_bpm = input("BPM: ")
+            if not entrada_bpm.isdigit():
+                print("Erro: BPM deve ser um número inteiro.")
+                continue
+            b = int(entrada_bpm)
+            if b <= 0:
+                print("Erro: BPM deve ser maior que zero.")
+                continue
             
             nova_m = Musica(proximo_id, t, a, g, b)
             minha_biblioteca.adicionar_musica(nova_m)
