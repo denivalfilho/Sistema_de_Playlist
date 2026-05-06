@@ -121,6 +121,22 @@ def menu():
                 fila_treinar.exibir_fila()
             else:
                 print("Opção inválida.")
+
+        elif opcao == "8":
+            print("HISTÓRICO DE REPRODUÇÃO")
+            if historico.esta_vazia():
+                print("Nenhuma música foi tocada ainda.")
+            else:
+                historico.exibir_fila()
+
+        elif opcao == "9":
+            print("ESTATÍSTICAS")
+            print(f"Total de músicas na biblioteca: {minha_biblioteca.contar()}")
+            print(f"Tamanho da fila Relaxar: {fila_relaxar.tamanho()}")
+            print(f"Tamanho da fila Focar: {fila_focar.tamanho()}")
+            print(f"Tamanho da fila Animar: {fila_animar.tamanho()}")
+            print(f"Tamanho da fila Treinar: {fila_treinar.tamanho()}")
+            print(f"Total de músicas reproduzidas: {historico.tamanho()}")
         
         elif opcao == "0":
             print("Encerrando o programa...")

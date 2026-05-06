@@ -72,6 +72,14 @@ class Biblioteca:
             atual = atual.proximo
         return False
 
+    def contar(self):
+        total = 0
+        atual = self.inicio
+        while atual is not None:
+            total += 1
+            atual = atual.proximo
+        return total
+
     def remover_musica(self, id_alvo):
         atual = self.inicio
         anterior = None
@@ -105,6 +113,9 @@ class Fila:
 
     def esta_vazia(self):
         return self.inicio is None
+
+    def tamanho(self):
+        return self._tamanho
 
     def enqueue(self, musica):
         novo_no = NodoFila(musica)
