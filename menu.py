@@ -27,21 +27,7 @@ def menu():
             t = input("Título: ")
             a = input("Artista: ")
             g = input("Gênero: ")
-
-            entrada_bpm = input("BPM: ")
-            if not entrada_bpm.isdigit():
-                print("Erro: BPM deve ser um número inteiro.")
-                continue
-            b = int(entrada_bpm)
-            if b <= 0:
-                print("Erro: BPM deve ser maior que zero.")
-                continue
-
-            if minha_biblioteca.existe_duplicada(t, a):
-                confirma = input("Já existe uma música com esse título e artista. Adicionar mesmo assim? (s/n): ")
-                if confirma.lower() != "s":
-                    print("Operação cancelada.")
-                    continue
+            b = int(input("BPM: "))
             
             nova_m = Musica(proximo_id, t, a, g, b)
             minha_biblioteca.adicionar_musica(nova_m)
@@ -119,11 +105,22 @@ def menu():
                 print("Não há músicas nesta fila. Lembre-se de montar as filas (Opção 5) primeiro!")
 
         elif opcao == "7":
-            print("HISTÓRICO DE REPRODUÇÃO")
-            if historico.esta_vazia():
-                print("Nenhuma música foi tocada ainda.")
+            print("Escolha a fila: 1.Relax | 2.Foco | 3.Animar | 4.Treinar")
+            humor = input("Escolha: ")
+            if humor == "1":
+                print("--- Relaxar ---")
+                fila_relaxar.exibir_fila()
+            elif humor == "2":
+                print("--- Focar ---")
+                fila_focar.exibir_fila()
+            elif humor == "3":
+                print("--- Animar ---")
+                fila_animar.exibir_fila()
+            elif humor == "4":
+                print("--- Treinar ---")
+                fila_treinar.exibir_fila()
             else:
-                historico.exibir_fila()
+                print("Opção inválida.")
         
         elif opcao == "0":
             print("Encerrando o programa...")
