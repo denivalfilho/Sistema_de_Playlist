@@ -18,7 +18,6 @@ def menu():
         print("4. Listar biblioteca")
         print("5. Montar filas de humor")
         print("6. Reproduzir música (Ouvir)")
-        print("7. Ver Histórico")
         print("7. Exibir fila de humor")
         print("8. Ver Histórico")
         print("9. Estatísticas")
