@@ -26,6 +26,11 @@ def menu():
         if opcao == "1":
             t = input("Título: ")
             a = input("Artista: ")
+
+            if minha_biblioteca.existe_duplicada(t, a):
+                print("Essa música já existe na biblioteca.")
+                continue
+            
             g = input("Gênero: ")
             b = int(input("BPM: "))
             
