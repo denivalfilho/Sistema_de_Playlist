@@ -36,6 +36,12 @@ def menu():
             if b <= 0:
                 print("Erro: BPM deve ser maior que zero.")
                 continue
+
+            if minha_biblioteca.existe_duplicada(t, a):
+                confirma = input("Já existe uma música com esse título e artista. Adicionar mesmo assim? (s/n): ")
+                if confirma.lower() != "s":
+                    print("Operação cancelada.")
+                    continue
             
             nova_m = Musica(proximo_id, t, a, g, b)
             minha_biblioteca.adicionar_musica(nova_m)

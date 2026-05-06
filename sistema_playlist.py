@@ -64,6 +64,14 @@ class Biblioteca:
             
         return None
 
+    def existe_duplicada(self, titulo, artista):
+        atual = self.inicio
+        while atual is not None:
+            if atual.musica.titulo.lower() == titulo.lower() and atual.musica.artista.lower() == artista.lower():
+                return True
+            atual = atual.proximo
+        return False
+
     def remover_musica(self, id_alvo):
         atual = self.inicio
         anterior = None
